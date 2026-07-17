@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفيديوهات - ريم سليمان</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-container {
+            position: relative;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-title {
+            padding: 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .video-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            color: #999;
+            font-size: 3rem;
+        }
+
+        .video-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .video-tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .video-tab.active {
+            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
+            color: #1a1a1a;
+        }
+
+        .video-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .video-category {
+            display: none;
+        }
+
+        .video-category.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">✨ ريم سليمان</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">الرئيسية</a></li>
+                <li><a href="index.html#about">عني</a></li>
+                <li><a href="index.html#works">الأعمال</a></li>
+                <li><a href="videos.html">الفيديوهات</a></li>
+                <li><a href="index.html#achievements">الإنجازات</a></li>
+                <li><a href="index.html#contact">تواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Videos Section -->
+    <section class="videos">
+        <div class="container">
+            <h1 class="section-title">الفيديوهات</h1>
+
+            <!-- Video Tabs -->
+            <div class="video-tabs">
+                <button class="video-tab active" onclick="filterVideos('all')">الكل</button>
+                <button class="video-tab" onclick="filterVideos('series')">مسلسلات</button>
+                <button class="video-tab" onclick="filterVideos('films')">أفلام</button>
+                <button class="video-tab" onclick="filterVideos('theater')">مسرح</button>
+                <button class="video-tab" onclick="filterVideos('programs')">برامج</button>
+                <button class="video-tab" onclick="filterVideos('behind')">خلف الكاميرا</button>
+            </div>
+
+            <!-- Series Videos -->
+            <div id="series" class="video-category active">
+                <h2 class="category-title">📺 مسلسلات</h2>
+                <div class="videos-grid">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/fs58Hh4dTd0" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">مسلسل من الأعمال</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/WXfNxclKfPA" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">مسلسل آخر</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/8oGQN9XWpC8" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">حلقة من المسلسل</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/1xrRWFObNlU" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">مسلسل درامي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/z07zgINDjHw" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">حلقة جديدة</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/JDl7GDlD2No" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">مسلسل مميز</div>
+                    </div>
+
+                    <!-- مساحات فارغة للمزيد من الفيديوهات -->
+                    <div class="video-container">
+                        <div class="video-placeholder">🎬</div>
+                        <div class="video-title">أضيفي فيديو جديد</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">🎬</div>
+                        <div class="video-title">مسلسل جديد</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Films Videos -->
+            <div id="films" class="video-category">
+                <h2 class="category-title">🎬 أفلام</h2>
+                <div class="videos-grid">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/UpU7wty7SuA" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">فيلم من الأعمال</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/EuIvCiElviU" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">فيلم درامي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/nHBu6dLofXg" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">فيلم مميز</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/Mt8guv82dj0" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">فيلم جديد</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/oXLZsxBngUg" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">أحدث أفلامي</div>
+                    </div>
+
+                    <!-- مساحات فارغة -->
+                    <div class="video-container">
+                        <div class="video-placeholder">🎬</div>
+                        <div class="video-title">فيلم قادم</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theater Videos -->
+            <div id="theater" class="video-category">
+                <h2 class="category-title">🎭 مسرحيات</h2>
+                <div class="videos-grid">
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">مسرحية من العروض</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">عرض مسرحي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">فعالية مسرح</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">عرض درامي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">مهرجان مسرحي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">عرض كوميدي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programs Videos -->
+            <div id="programs" class="video-category">
+                <h2 class="category-title">🎙️ برامج تلفزيونية</h2>
+                <div class="videos-grid">
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">برنامج من البرامج</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">حلقة برنامج</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">برنامج توعوي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">برنامج درامي</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">حلقة جديدة</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">برنامج ترفيهي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Behind the Scenes -->
+            <div id="behind" class="video-category">
+                <h2 class="category-title">🎥 خلف الكاميرا</h2>
+                <div class="videos-grid">
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">خلف الكاميرا</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">لقطات حصرية</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">يوميات التصوير</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">مشاهد طريفة</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">قصة العمل</div>
+                    </div>
+
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">تجربة جديدة</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Videos (combined view) -->
+            <div id="all" class="video-category" style="display: none;">
+                <h2 class="category-title">📽️ جميع الفيديوهات</h2>
+                <div class="videos-grid">
+                    <!-- Series -->
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/fs58Hh4dTd0" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">مسلسل</div>
+                    </div>
+
+                    <!-- Films -->
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/UpU7wty7SuA" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="video-title">فيلم</div>
+                    </div>
+
+                    <!-- Theater -->
+                    <div class="video-container">
+                        <div class="video-placeholder">🎭</div>
+                        <div class="video-title">مسرحية</div>
+                    </div>
+
+                    <!-- Programs -->
+                    <div class="video-container">
+                        <div class="video-placeholder">📺</div>
+                        <div class="video-title">برنامج</div>
+                    </div>
+
+                    <!-- Behind -->
+                    <div class="video-container">
+                        <div class="video-placeholder">📹</div>
+                        <div class="video-title">خلف الكاميرا</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ريم سليمان - جميع الحقوق محفوظة</p>
+            <p>🎬 Film and Television Actress</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterVideos(category) {
+            // Hide all categories
+            document.querySelectorAll('.video-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+
+            // Remove active from all tabs
+            document.querySelectorAll('.video-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected category
+            if (category === 'all') {
+                document.getElementById('all').classList.add('active');
+                event.target.classList.add('active');
+            } else {
+                document.getElementById(category).classList.add('active');
+                event.target.classList.add('active');
+            }
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.video-container').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
